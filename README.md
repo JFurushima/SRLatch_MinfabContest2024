@@ -30,3 +30,6 @@ PowerPointにてレイアウトの下書きを作成し、それに合わせて�
 ## *DRC* ##
 ![drc](/images/drc.png)
 ![drc_with_layout](/images/drc_with_layout.png)
+
+## *LVS* ##
+対応できておらず。後追いで実施予定。
