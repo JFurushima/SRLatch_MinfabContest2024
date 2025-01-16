@@ -1,0 +1,30 @@
+* C:\Users\furushima\Desktop\LTspice\SRLatch\SRLatch_testbench_.asc
+XX1 N002 N003 N001 NC_01 0 NC_02 srlatch
+V1 N001 0 5
+V2 N002 0 PULSE(0 0 0 0.01m 0.05m 1m 2m)
+V3 N003 0 PULSE(0 0 0.5m 0.01m 0.05m 1m 2m)
+
+* block symbol definitions
+.subckt srlatch R S Vdd Q Vss ~Q
+M1 N001 S Vdd Vdd PMOS L=10u W=40u
+M2 N001 S Vss Vss NMOS
+=10u W=10u
+M3 Q N001 N002 N002 NMOS L=10u W=10u
+M4 Q N001 Vdd Vdd PMOS L=10u W=40u
+M5 Q ~Q Vdd Vdd PMOS L=10u W=40u
+M6 N002 ~Q Vss Vss NMOS L=10u W=10u
+M7 N003 R Vdd Vdd PMOS L=10u W=40u
+M8 N003 R Vss Vss NMOS L=10u W=10u
+M9 ~Q N003 N004 N004 NMOS L=10u W=10u
+M10 ~Q N003 Vdd Vdd PMOS L=10u W=40u
+M11 ~Q Q Vdd Vdd PMOS L=10u W=40u
+M12 N004 Q Vss Vss NMOS L=10u W=10u
+.ends srlatch
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\furushima\AppData\Local\LTspice\lib\cmp\standard.mos
+.tran 10m
+*.include "C:\KLayout\salt\ICPS2023_5\Technology\tech\models\SOI_CMOS"
+.backanno
+.end
